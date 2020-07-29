@@ -1,38 +1,43 @@
-.App {
-  text-align: center;
-}
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap");
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@keyframes heading-animation {
+  0% {
+    transform: translateY(3px);
+  }
+  50% {
+    transform: translateY(-3px);
+    text-shadow: -10px 8px #ce015a;
+  }
+  100% {
+    transform: translateY(3px);
   }
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.App {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  font-family: "Orbitron", sans-serif;
+  background-color: #e63946;
+}
+
+.calculator-heading {
+  color: #f1faee;
+  font-size: 50px;
+  margin-bottom: 50px;
+  text-shadow: -5px 3px #ce015a;
+  animation-name: heading-animation;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+.created-by-message {
+  margin-top: 20px;
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+@media only screen and (max-width: 768px) {
+  .calculator-heading {
+    margin-top: -30px;
+    font-size: 35px;
   }
 }

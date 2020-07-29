@@ -1,0 +1,117 @@
+@keyframes calculator-animation {
+  0% {
+    transform: translateY(3px);
+  }
+  50% {
+    transform: translateY(-3px);
+    box-shadow: -15px 15px 3px 1px #ce015a;
+  }
+  100% {
+    transform: translateY(3px);
+  }
+}
+.calculator-container {
+  width: 400px;
+  height: 550px;
+  background-color: #f1faee;
+  border-radius: 5px;
+  transition-duration: 0.1s;
+  animation-name: calculator-animation;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  box-shadow: -5px 5px 1px 1px #ce015a;
+}
+
+.calculator-display {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  flex-direction: column;
+  background-color: rgb(0, 0, 0);
+  height: 20%;
+  margin: 5px;
+  box-shadow: inset 0px -1px 1px 1px #fcbf49;
+}
+.calculator-display-message {
+  font-size: 25px;
+  color: #ffb700;
+  margin-right: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.calculator-display_message-eval {
+  font-size: 25px;
+  color: red;
+  margin-right: 15px;
+}
+.calculator-buttons-container {
+  height: 400px;
+  background-color: rgba(82, 80, 80, 0.062);
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  margin: 10px;
+  border-radius: 5px;
+}
+.buttons-row {
+  display: grid;
+  column-gap: 10px;
+  height: 70px;
+}
+#first-row {
+  grid-template-columns: 3.2fr 1fr;
+}
+#second-row {
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+#third-row {
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+#fourth-row {
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+#fifth-row {
+  grid-template-columns: 1fr 1fr 2.2fr;
+}
+#clear {
+  background-color: #fa543e;
+}
+#clear:active {
+  background-color: #c71e08;
+}
+#equals {
+  background-color: #5153df;
+}
+#equals:active {
+  background-color: #03045e;
+}
+.calculator-button {
+  background-color: #a8dadc;
+  box-shadow: -1px 2px 1px 1px black;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  border-radius: 5px;
+  border: none;
+  font-family: "Orbitron", sans-serif;
+  font-size: 20px;
+  cursor: pointer;
+  transition-duration: 0.1s;
+}
+.calculator-button:active {
+  background-color: #52b7bb;
+  transform: translate(-2px, 2px);
+  box-shadow: 0px 0px 1px 0px black;
+  color: white;
+}
+
+@media only screen and (max-width: 768px) {
+  .calculator-container {
+    width: 350px;
+  }
+  .calculator-display-message {
+    font-size: 20px;
+  }
+}
