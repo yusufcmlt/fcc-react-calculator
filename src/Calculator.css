@@ -33,7 +33,7 @@
   box-shadow: inset 0px -1px 1px 1px #fcbf49;
 }
 .calculator-display-message {
-  font-size: 25px;
+  font-size: 30px;
   color: #ffb700;
   margin-right: 15px;
   display: flex;
@@ -41,8 +41,8 @@
   align-items: center;
   margin-bottom: 10px;
 }
-.calculator-display_message-eval {
-  font-size: 25px;
+.calculator-display-message-history {
+  font-size: 20px;
   color: red;
   margin-right: 15px;
 }
@@ -82,11 +82,12 @@
   background-color: #c71e08;
 }
 #equals {
-  background-color: #5153df;
+  background-color: #ffb700;
 }
 #equals:active {
   background-color: #03045e;
 }
+
 .calculator-button {
   background-color: #a8dadc;
   box-shadow: -1px 2px 1px 1px black;
@@ -106,12 +107,17 @@
   box-shadow: 0px 0px 1px 0px black;
   color: white;
 }
-
-@media only screen and (max-width: 768px) {
+.operators {
+  background-color: #ffb700;
+}
+.operators:active {
+  background-color: #03045e;
+}
+@med @media only screen and (max-width: 768px) {
   .calculator-container {
     width: 350px;
   }
   .calculator-display-message {
-    font-size: 20px;
+    font-size: 25px;
   }
 }

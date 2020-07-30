@@ -3,31 +3,30 @@ import "./Calculator.css";
 
 export default function Calculator() {
   const [currentDisplay, setCurrentDisplay] = useState("0");
-  const [evalDisplay, setEvalDisplay] = useState("0");
+  const [calcEvaled, setCalcEvaled] = useState(false);
+  const symbolsList = ["+", "-", "*", "/", "."];
 
   const clearDisplay = () => {
     setCurrentDisplay("0");
     playClick();
+    setCalcEvaled(false);
   };
 
   const typeOnDisplay = (calcButtonValue) => {
-    let symbolsList = ["+", "-", "*", "/", "."];
-
-    if (currentDisplay[0] === "0") {
+    if (currentDisplay === "0") {
       setCurrentDisplay(calcButtonValue);
-    } else if (symbolsList.includes(calcButtonValue)) {
-      if (!symbolsList.includes(currentDisplay[currentDisplay.length - 1])) {
-        setCurrentDisplay(currentDisplay + calcButtonValue);
-      }
     } else {
-      setCurrentDisplay(currentDisplay + calcButtonValue);
     }
-    console.log(currentDisplay);
     playClick();
   };
 
   const evalButton = () => {
-    setCurrentDisplay(eval(currentDisplay));
+    let currentDisplayCopied = currentDisplay;
+    if (symbolsList.includes(currentDisplay[currentDisplay.length - 1])) {
+      currentDisplayCopied = currentDisplay.slice(0, currentDisplay.length - 1);
+    }
+    setCurrentDisplay(eval(currentDisplayCopied));
+    setCalcEvaled(true);
     playClick();
   };
 
@@ -54,7 +53,7 @@ export default function Calculator() {
             Clear All
           </button>
           <button
-            className="calculator-button"
+            className="calculator-button operators"
             id="divide"
             onClick={() => typeOnDisplay("/")}
           >
@@ -84,7 +83,7 @@ export default function Calculator() {
             9
           </button>
           <button
-            className="calculator-button"
+            className="calculator-button operators"
             id="multiply"
             onClick={() => typeOnDisplay("*")}
           >
@@ -114,7 +113,7 @@ export default function Calculator() {
             6
           </button>
           <button
-            className="calculator-button"
+            className="calculator-button operators"
             id="subtract"
             onClick={() => typeOnDisplay("-")}
           >
@@ -144,7 +143,7 @@ export default function Calculator() {
             3
           </button>
           <button
-            className="calculator-button"
+            className="calculator-button operators"
             id="add"
             onClick={() => typeOnDisplay("+")}
           >
@@ -160,7 +159,7 @@ export default function Calculator() {
             0
           </button>
           <button
-            className="calculator-button"
+            className="calculator-button operators"
             id="decimal"
             onClick={() => typeOnDisplay(".")}
           >
