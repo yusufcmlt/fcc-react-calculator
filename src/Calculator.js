@@ -4,29 +4,100 @@ import "./Calculator.css";
 export default function Calculator() {
   const [currentDisplay, setCurrentDisplay] = useState("0");
   const [calcEvaled, setCalcEvaled] = useState(false);
-  const symbolsList = ["+", "-", "*", "/", "."];
+  const [decimalClicked, setDecimalClicked] = useState(false);
+  const [displayFull, setDisplayFull] = useState(false);
+  const symbolsList = ["+", "-", "*", "/"];
 
+  useEffect(() => {
+    if (!currentDisplay) {
+      setCurrentDisplay("0");
+    }
+  }, [currentDisplay]);
   const clearDisplay = () => {
     setCurrentDisplay("0");
     playClick();
     setCalcEvaled(false);
+    setDecimalClicked(false);
+    setDisplayFull(false);
+  };
+  //DONT TOUCH THIS MONSTROSITY
+  //DONT DO THIS AT HOME
+  const typeOnDisplay = (calcButtonValue) => {
+    if (!displayFull) {
+      if (currentDisplay === "0") {
+        setCurrentDisplay(calcButtonValue);
+      } else if (symbolsList.includes(calcButtonValue)) {
+        if (!symbolsList.includes(currentDisplay[currentDisplay.length - 1])) {
+          setCurrentDisplay(currentDisplay + calcButtonValue);
+        } else if (calcButtonValue !== "-") {
+          let currentDisplayCopy = currentDisplay;
+          currentDisplayCopy = currentDisplayCopy.slice(
+            0,
+            symbolsList.includes(currentDisplay[currentDisplay.length - 1]) &&
+              symbolsList.includes(currentDisplay[currentDisplay.length - 2])
+              ? currentDisplayCopy.length - 2
+              : currentDisplayCopy.length - 1
+          );
+          setCurrentDisplay(currentDisplayCopy + calcButtonValue);
+        } else if (calcButtonValue === "-") {
+          if (!currentDisplay.endsWith("-")) {
+            setCurrentDisplay(currentDisplay + calcButtonValue);
+          }
+        }
+        setDecimalClicked(false);
+      } else if (calcButtonValue === ".") {
+        if (!decimalClicked) {
+          setCurrentDisplay(currentDisplay + calcButtonValue);
+          setDecimalClicked(true);
+        }
+      } else {
+        setCurrentDisplay(currentDisplay + calcButtonValue);
+      }
+      if (currentDisplay && currentDisplay.length === 17) {
+        setDisplayFull(true);
+      }
+    }
+    playClick();
   };
 
-  const typeOnDisplay = (calcButtonValue) => {
-    if (currentDisplay === "0") {
-      setCurrentDisplay(calcButtonValue);
+  const delButton = () => {
+    if (currentDisplay && currentDisplay.length > 1) {
+      if (currentDisplay.endsWith(".")) setDecimalClicked(false);
+      setCurrentDisplay(currentDisplay.slice(0, -1));
     } else {
+      setCurrentDisplay("0");
     }
     playClick();
   };
 
   const evalButton = () => {
-    let currentDisplayCopied = currentDisplay;
-    if (symbolsList.includes(currentDisplay[currentDisplay.length - 1])) {
-      currentDisplayCopied = currentDisplay.slice(0, currentDisplay.length - 1);
+    if (currentDisplay) {
+      let currentDisplayCopied = currentDisplay;
+      if (
+        symbolsList.includes(currentDisplay[currentDisplay.length - 1]) ||
+        currentDisplay === "."
+      ) {
+        currentDisplayCopied = currentDisplay.slice(
+          0,
+          currentDisplay.length - 1
+        );
+      }
+      if (currentDisplay.endsWith("-")) {
+        currentDisplayCopied = currentDisplay.slice(
+          0,
+          currentDisplay.length - 2
+        );
+      }
+      setCurrentDisplay(eval(currentDisplayCopied));
+      setCalcEvaled(true);
+    } else {
+      setCurrentDisplay("0");
     }
-    setCurrentDisplay(eval(currentDisplayCopied));
-    setCalcEvaled(true);
+    if (currentDisplay && currentDisplay.includes(".")) {
+      setDecimalClicked(true);
+    } else {
+      setDecimalClicked(false);
+    }
     playClick();
   };
 
@@ -42,6 +113,9 @@ export default function Calculator() {
         <div className="calculator-display-message" id="display">
           {currentDisplay}
         </div>
+        <div className="calculator-full-message">
+          {displayFull ? "MAX" : "..."}
+        </div>
       </div>
       <div className="calculator-buttons-container">
         <div className="buttons-row" id="first-row">
@@ -51,6 +125,15 @@ export default function Calculator() {
             onClick={() => clearDisplay()}
           >
             Clear All
+          </button>
+          <button
+            className="calculator-button operators"
+            id="del"
+            onClick={() => {
+              delButton();
+            }}
+          >
+            {"<--"}
           </button>
           <button
             className="calculator-button operators"
@@ -166,7 +249,7 @@ export default function Calculator() {
             .
           </button>
           <button
-            className="calculator-button"
+            className="calculator-button operators"
             id="equals"
             onClick={() => evalButton()}
           >
