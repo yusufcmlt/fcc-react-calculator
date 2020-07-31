@@ -68,6 +68,7 @@ export default function Calculator() {
     } else {
       setCurrentDisplay("0");
     }
+    setDisplayFull(false);
     playClick();
   };
 
