@@ -3,6 +3,7 @@ import "./Calculator.css";
 
 export default function Calculator() {
   const [currentDisplay, setCurrentDisplay] = useState("0");
+  // eslint-disable-next-line
   const [calcEvaled, setCalcEvaled] = useState(false);
   const [decimalClicked, setDecimalClicked] = useState(false);
   const [displayFull, setDisplayFull] = useState(false);
@@ -88,6 +89,7 @@ export default function Calculator() {
           currentDisplay.length - 2
         );
       }
+      // eslint-disable-next-line
       setCurrentDisplay(eval(currentDisplayCopied));
       setCalcEvaled(true);
     } else {
