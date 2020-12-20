@@ -8,13 +8,13 @@ function App() {
       <h1 className="calculator-heading">React Calculator</h1>
       <Calculator />
       <div className="created-by-message">
-        Created by{" "}
         <a
+          className="github-link"
           rel="noopener noreferrer"
           target="_blank"
-          href="https://github.com/pdouu"
+          href="https://github.com/yusufcmlt/fcc-react-calculator"
         >
-          pdouu
+          {" "}
         </a>
       </div>
     </div>
