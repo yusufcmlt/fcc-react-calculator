@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/fcc-react-calculator/static/css/main.2105f258.chunk.css",
+    "main.css": "/fcc-react-calculator/static/css/main.1b6b3fa7.chunk.css",
     "main.js": "/fcc-react-calculator/static/js/main.a18d3fdf.chunk.js",
     "main.js.map": "/fcc-react-calculator/static/js/main.a18d3fdf.chunk.js.map",
     "runtime-main.js": "/fcc-react-calculator/static/js/runtime-main.2ddbf0a5.js",
@@ -8,15 +8,16 @@
     "static/js/2.7626a088.chunk.js": "/fcc-react-calculator/static/js/2.7626a088.chunk.js",
     "static/js/2.7626a088.chunk.js.map": "/fcc-react-calculator/static/js/2.7626a088.chunk.js.map",
     "index.html": "/fcc-react-calculator/index.html",
-    "precache-manifest.cabe91c5ada74c7d8f0dc1228923ea01.js": "/fcc-react-calculator/precache-manifest.cabe91c5ada74c7d8f0dc1228923ea01.js",
+    "precache-manifest.1680c6927c47308142e7a61fda98f575.js": "/fcc-react-calculator/precache-manifest.1680c6927c47308142e7a61fda98f575.js",
     "service-worker.js": "/fcc-react-calculator/service-worker.js",
-    "static/css/main.2105f258.chunk.css.map": "/fcc-react-calculator/static/css/main.2105f258.chunk.css.map",
-    "static/js/2.7626a088.chunk.js.LICENSE.txt": "/fcc-react-calculator/static/js/2.7626a088.chunk.js.LICENSE.txt"
+    "static/css/main.1b6b3fa7.chunk.css.map": "/fcc-react-calculator/static/css/main.1b6b3fa7.chunk.css.map",
+    "static/js/2.7626a088.chunk.js.LICENSE.txt": "/fcc-react-calculator/static/js/2.7626a088.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/fcc-react-calculator/static/media/github-button.285a4c4c.png"
   },
   "entrypoints": [
     "static/js/runtime-main.2ddbf0a5.js",
     "static/js/2.7626a088.chunk.js",
-    "static/css/main.2105f258.chunk.css",
+    "static/css/main.1b6b3fa7.chunk.css",
     "static/js/main.a18d3fdf.chunk.js"
   ]
 }
