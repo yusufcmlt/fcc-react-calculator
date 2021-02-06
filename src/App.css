@@ -17,15 +17,15 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
   font-family: "Orbitron", sans-serif;
-  background-color: #e63946;
+  background-color: #cc4752;
 }
 
 .calculator-heading {
   color: #f1faee;
   font-size: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   text-shadow: -5px 3px #ce015a;
   animation-name: heading-animation;
   animation-duration: 4s;
@@ -33,7 +33,7 @@
 }
 
 .github-link {
-  background-image: url("https://image.flaticon.com/icons/png/512/25/25231.png");
+  background-image: url("./assets//github-button.png");
   width: 50px;
   height: 50px;
   display: inline-block;
@@ -45,9 +45,11 @@
 .github-link:hover {
   filter: none;
 }
+
 @media only screen and (max-width: 768px) {
   .calculator-heading {
-    margin-top: -30px;
+    margin-bottom: 0;
     font-size: 35px;
+    animation-name: unset;
   }
 }

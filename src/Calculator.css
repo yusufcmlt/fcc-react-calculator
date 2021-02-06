@@ -107,9 +107,18 @@
 .operators:active {
   background-color: #03045e;
 }
+
+@media only screen and (max-width: 1400px) {
+  .calculator-container {
+    width: 30vw;
+  }
+}
+
 @media only screen and (max-width: 768px) {
   .calculator-container {
     width: 350px;
+    transform: scale(0.9);
+    animation-name: unset;
   }
   .calculator-display-message {
     font-size: 20px;
